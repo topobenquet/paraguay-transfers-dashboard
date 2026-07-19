@@ -85,7 +85,7 @@ table.ft tr.hi { background:#EFF6FF; font-weight:700; border-top:2px solid #BFDB
 
 <div class="page-header">
   <h1>🚗 Paraguay Transfers</h1>
-  <span class="subtitle">Dashboard Live · 18 Jul 2026</span>
+  <span class="subtitle">Dashboard Live · 19 Jul 2026</span>
 </div>
 
 <!-- ══ SECTION 1: KPIs MAYO vs ABRIL ══ -->
@@ -179,7 +179,7 @@ table.ft tr.hi { background:#EFF6FF; font-weight:700; border-top:2px solid #BFDB
   <div class="kpi-row kpi-row-4" id="closingKPIs"></div>
   <div class="info-box info-green">
     ✅ <strong>GHL conectado</strong> — Leads = contactos nuevos por día.
-    Ventas = fecha de reserva (Balance Traslados). Datos al 18 Jul 2026 (G.Ads hasta 17 Jul).
+    Ventas = fecha de reserva (Balance Traslados). Datos al 18 Jul 2026 (G.Ads hasta 18 Jul).
   </div>
   <div class="ft-wrap" style="margin-top:10px;">
     <table class="ft" id="dailyTable">
@@ -232,7 +232,7 @@ table.ft tr.hi { background:#EFF6FF; font-weight:700; border-top:2px solid #BFDB
 <script>
 /* ════════════════════════════════════════════
    STATIC DATA — synced daily 7am
-   Last sync: 2026-07-18
+   Last sync: 2026-07-19
    ════════════════════════════════════════════ */
 const monthly = [
   { mes:"Enero",  leads:211, reservas:11, revenue:2915, chofer:799,  comb:150, peajes:29,  comision:87,  gAds:153, meta:0,   otros:73  },
@@ -241,7 +241,7 @@ const monthly = [
   { mes:"Abril",  leads:149, reservas:20, revenue:5487, chofer:3177, comb:82,  peajes:10,  comision:126, gAds:535, meta:115, otros:5   },
   { mes:"Mayo",   leads:182, reservas:25, revenue:5443, chofer:2543, comb:170, peajes:22,  comision:154, gAds:464, meta:90,  otros:8   },
   { mes:"Junio",  leads:148, reservas:23, revenue:4148, chofer:1484, comb:470, peajes:41,  comision:132, gAds:182, meta:0,   otros:83  },
-  { mes:"Julio*", leads:114, reservas:10, revenue:5198, chofer:2803, comb:508, peajes:42,  comision:156, gAds:39,  meta:0,   otros:0   },
+  { mes:"Julio*", leads:120, reservas:11, revenue:5267, chofer:2823, comb:508, peajes:42,  comision:158, gAds:33,  meta:0,   otros:1   },
 ];
 monthly.forEach(m => {
   m.costos   = m.chofer + m.comb + m.peajes + m.comision + m.gAds + m.meta + m.otros;
@@ -258,7 +258,7 @@ const googleAdsMonthly = [
   { mes:"Abril",   spend:430.94, clicks:902,  impr:23973, conv:121.0 },
   { mes:"Mayo",    spend:352.88, clicks:3837, impr:80137, conv:573.0 },
   { mes:"Junio",   spend:241.53, clicks:3994, impr:90748, conv:479.0 },
-  { mes:"Julio*",  spend:38.52,  clicks:239,  impr:5270,  conv:32.0  },
+  { mes:"Julio*",  spend:40.51,  clicks:240,  impr:5291,  conv:33.0  },
 ];
 googleAdsMonthly.forEach(m => {
   m.ctr = m.impr>0 ? m.clicks/m.impr : 0;
@@ -279,14 +279,14 @@ const ghlDailyJun = {
 
 // GHL contacts per day — Julio 2026
 const ghlDailyJul = {
-  "2026-07-02":7,"2026-07-03":8,"2026-07-04":2,"2026-07-05":1,"2026-07-06":5,"2026-07-07":5,"2026-07-08":6,"2026-07-09":9,"2026-07-10":7,"2026-07-11":4,"2026-07-12":5,"2026-07-13":13,"2026-07-14":2,"2026-07-15":6,"2026-07-16":9,"2026-07-17":25,
+  "2026-07-02":7,"2026-07-03":8,"2026-07-04":2,"2026-07-05":1,"2026-07-06":5,"2026-07-07":5,"2026-07-08":6,"2026-07-09":9,"2026-07-10":7,"2026-07-11":4,"2026-07-12":5,"2026-07-13":13,"2026-07-14":2,"2026-07-15":6,"2026-07-16":9,"2026-07-17":25,"2026-07-18":6,
 };
 
 // Ventas (bookings) per day from Google Sheets — Fecha de Reserva Junio 2026
 const sheetDailyJunVentas = {"2026-06-04":2,"2026-06-07":2,"2026-06-08":1,"2026-06-10":1,"2026-06-11":1,"2026-06-17":2,"2026-06-18":1,"2026-06-22":4,"2026-06-27":1,"2026-06-28":1,"2026-06-29":2};
 
 // Ventas (bookings) per day from Google Sheets — Fecha de Reserva Julio 2026
-const sheetDailyJulVentas = {"2026-07-07":2,"2026-07-08":1,"2026-07-09":1,"2026-07-13":1,"2026-07-16":1};
+const sheetDailyJulVentas = {"2026-07-07":2,"2026-07-08":1,"2026-07-09":1,"2026-07-13":1,"2026-07-16":1,"2026-07-18":1};
 
 // Meta Ads daily spend Junio (Windsor.ai)
 const metaDailyJun = {};
@@ -585,6 +585,7 @@ const gAdsDailyJulStatic = {
   "2026-07-04":{spend:0,conv:0},"2026-07-05":{spend:0,conv:0},"2026-07-06":{spend:8.91,conv:1},"2026-07-07":{spend:1.98,conv:0},
   "2026-07-08":{spend:5.82,conv:1},"2026-07-09":{spend:0,conv:0},"2026-07-10":{spend:0,conv:0},"2026-07-11":{spend:0,conv:0},"2026-07-12":{spend:6.22,conv:0},"2026-07-13":{spend:2.0,conv:0},
   "2026-07-14":{spend:1.94,conv:0},"2026-07-15":{spend:3.92,conv:0},"2026-07-16":{spend:1.94,conv:0},
+  "2026-07-17":{spend:0,conv:0},"2026-07-18":{spend:1.99,conv:1},
 };
 
 function renderPeriodStatic() {
@@ -600,7 +601,7 @@ function renderPeriodStatic() {
   document.getElementById("liveStatus").style.display="none";
   document.getElementById("livePeriodSection").innerHTML = `
     <div class="info-box info-blue" style="margin-bottom:12px;">
-      📊 Julio 1-18 vs Junio 1-18 · Datos estáticos al 18/7/2026 (G.Ads hasta 17/7)
+      📊 Julio 1-18 vs Junio 1-18 · Datos estáticos al 18/7/2026 (G.Ads hasta 18/7)
     </div>
     <div class="kpi-row kpi-row-4">
       ${kpi(`G.Ads Spend Jul 1-18`, f$(JUL_GADS),

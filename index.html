@@ -85,7 +85,7 @@ table.ft tr.hi { background:#EFF6FF; font-weight:700; border-top:2px solid #BFDB
 
 <div class="page-header">
   <h1>🚗 Paraguay Transfers</h1>
-  <span class="subtitle">Dashboard Live · 23 Jul 2026</span>
+  <span class="subtitle">Dashboard Live · 24 Jul 2026</span>
 </div>
 
 <!-- ══ SECTION 1: KPIs MAYO vs ABRIL ══ -->
@@ -175,11 +175,11 @@ table.ft tr.hi { background:#EFF6FF; font-weight:700; border-top:2px solid #BFDB
 
 <!-- ══ SECTION 6: % CIERRE DÍA A DÍA ══ -->
 <div class="section">
-  <div class="section-title">% Cierre — Julio 2026 día a día (al 23 Jul)</div>
+  <div class="section-title">% Cierre — Julio 2026 día a día (al 24 Jul)</div>
   <div class="kpi-row kpi-row-4" id="closingKPIs"></div>
   <div class="info-box info-green">
     ✅ <strong>GHL conectado</strong> — Leads = contactos nuevos por día.
-    Ventas = fecha de reserva (Balance Traslados). Datos al 23 Jul 2026 (G.Ads hasta 22 Jul).
+    Ventas = fecha de reserva (Balance Traslados). Datos al 24 Jul 2026 (G.Ads hasta 22 Jul).
   </div>
   <div class="ft-wrap" style="margin-top:10px;">
     <table class="ft" id="dailyTable">
@@ -232,16 +232,16 @@ table.ft tr.hi { background:#EFF6FF; font-weight:700; border-top:2px solid #BFDB
 <script>
 /* ════════════════════════════════════════════
    STATIC DATA — synced daily 7am
-   Last sync: 2026-07-23
+   Last sync: 2026-07-24
    ════════════════════════════════════════════ */
 const monthly = [
-  { mes:"Enero",  leads:211, reservas:11, revenue:2915, chofer:799,  comb:150, peajes:29,  comision:87,  gAds:153, meta:0,   otros:73  },
-  { mes:"Febrero",leads:135, reservas:24, revenue:9189, chofer:5292, comb:490, peajes:93,  comision:261, gAds:292, meta:22,  otros:115 },
+  { mes:"Enero",  leads:196, reservas:11, revenue:2915, chofer:799,  comb:150, peajes:29,  comision:87,  gAds:153, meta:0,   otros:73  },
+  { mes:"Febrero",leads:129, reservas:24, revenue:9189, chofer:5292, comb:490, peajes:93,  comision:261, gAds:292, meta:22,  otros:115 },
   { mes:"Marzo",  leads:220, reservas:21, revenue:7311, chofer:4722, comb:92,  peajes:10,  comision:218, gAds:367, meta:156, otros:5   },
-  { mes:"Abril",  leads:149, reservas:20, revenue:5487, chofer:3177, comb:82,  peajes:10,  comision:126, gAds:535, meta:115, otros:5   },
-  { mes:"Mayo",   leads:182, reservas:25, revenue:5443, chofer:2543, comb:170, peajes:22,  comision:154, gAds:464, meta:90,  otros:8   },
-  { mes:"Junio",  leads:148, reservas:23, revenue:4148, chofer:1484, comb:470, peajes:41,  comision:132, gAds:182, meta:0,   otros:83  },
-  { mes:"Julio*", leads:154, reservas:17, revenue:6520, chofer:3232, comb:678, peajes:42,  comision:196, gAds:39,  meta:0,   otros:3   },
+  { mes:"Abril",  leads:147, reservas:20, revenue:5487, chofer:3177, comb:82,  peajes:10,  comision:126, gAds:535, meta:115, otros:5   },
+  { mes:"Mayo",   leads:181, reservas:25, revenue:5493, chofer:2543, comb:170, peajes:22,  comision:154, gAds:464, meta:90,  otros:8   },
+  { mes:"Junio",  leads:147, reservas:23, revenue:4148, chofer:1484, comb:470, peajes:41,  comision:132, gAds:182, meta:0,   otros:83  },
+  { mes:"Julio*", leads:162, reservas:18, revenue:6569, chofer:3243, comb:703, peajes:42,  comision:197, gAds:39,  meta:0,   otros:78  },
 ];
 monthly.forEach(m => {
   m.costos   = m.chofer + m.comb + m.peajes + m.comision + m.gAds + m.meta + m.otros;
@@ -274,12 +274,12 @@ const JUN123_META  = 0;       // Jun 1-23 (Meta data ends May 21)
 
 // GHL contacts per day — Junio 2026
 const ghlDailyJun = {
-  "2026-06-01":6,"2026-06-02":8,"2026-06-03":7,"2026-06-05":4,"2026-06-06":3,"2026-06-07":4,"2026-06-08":3,"2026-06-09":5,"2026-06-10":6,"2026-06-11":5,"2026-06-12":4,"2026-06-13":9,"2026-06-14":2,"2026-06-15":6,"2026-06-16":5,"2026-06-17":6,"2026-06-18":6,"2026-06-19":4,"2026-06-20":2,"2026-06-21":4,"2026-06-22":9,"2026-06-23":10,"2026-06-24":5,"2026-06-25":6,"2026-06-26":8,"2026-06-27":5,"2026-06-28":1,"2026-06-29":4,"2026-06-30":1,
+  "2026-06-01":6,"2026-06-02":7,"2026-06-03":7,"2026-06-05":4,"2026-06-06":3,"2026-06-07":4,"2026-06-08":3,"2026-06-09":5,"2026-06-10":6,"2026-06-11":5,"2026-06-12":4,"2026-06-13":9,"2026-06-14":2,"2026-06-15":6,"2026-06-16":5,"2026-06-17":6,"2026-06-18":6,"2026-06-19":4,"2026-06-20":2,"2026-06-21":4,"2026-06-22":9,"2026-06-23":10,"2026-06-24":5,"2026-06-25":6,"2026-06-26":8,"2026-06-27":5,"2026-06-28":1,"2026-06-29":4,"2026-06-30":1,
 };
 
 // GHL contacts per day — Julio 2026
 const ghlDailyJul = {
-  "2026-07-02":7,"2026-07-03":8,"2026-07-04":2,"2026-07-05":1,"2026-07-06":5,"2026-07-07":5,"2026-07-08":6,"2026-07-09":9,"2026-07-10":7,"2026-07-11":4,"2026-07-12":5,"2026-07-13":13,"2026-07-14":2,"2026-07-15":6,"2026-07-16":9,"2026-07-17":25,"2026-07-18":6,"2026-07-19":6,"2026-07-20":11,"2026-07-21":6,"2026-07-22":9,"2026-07-23":2,
+  "2026-07-02":7,"2026-07-03":8,"2026-07-04":2,"2026-07-05":1,"2026-07-06":5,"2026-07-07":5,"2026-07-08":6,"2026-07-09":9,"2026-07-10":7,"2026-07-11":4,"2026-07-12":5,"2026-07-13":13,"2026-07-14":2,"2026-07-15":6,"2026-07-16":9,"2026-07-17":25,"2026-07-18":6,"2026-07-19":6,"2026-07-20":11,"2026-07-21":6,"2026-07-22":9,"2026-07-23":8,"2026-07-24":2,
 };
 
 // Ventas (bookings) per day from Google Sheets — Fecha de Reserva Junio 2026
@@ -590,7 +590,7 @@ const gAdsDailyJulStatic = {
 };
 
 function renderPeriodStatic() {
-  const dayOfMonth = 23;
+  const dayOfMonth = 24;
   const JUL_GADS = monthly[6].gAds;
   const JUL_META = monthly[6].meta;
   const JUL_CONV = googleAdsMonthly[6].conv;
@@ -602,7 +602,7 @@ function renderPeriodStatic() {
   document.getElementById("liveStatus").style.display="none";
   document.getElementById("livePeriodSection").innerHTML = `
     <div class="info-box info-blue" style="margin-bottom:12px;">
-      📊 Julio 1-23 vs Junio 1-23 · Datos estáticos al 23/7/2026 (G.Ads hasta 22/7)
+      📊 Julio 1-24 vs Junio 1-24 · Datos estáticos al 24/7/2026 (G.Ads hasta 22/7)
     </div>
     <div class="kpi-row kpi-row-4">
       ${kpi(`G.Ads Spend Jul 1-23`, f$(JUL_GADS),

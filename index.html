@@ -85,7 +85,7 @@ table.ft tr.hi { background:#EFF6FF; font-weight:700; border-top:2px solid #BFDB
 
 <div class="page-header">
   <h1>🚗 Paraguay Transfers</h1>
-  <span class="subtitle">Dashboard Live · 1 Ago 2026</span>
+  <span class="subtitle">Dashboard Live · 2 Ago 2026</span>
 </div>
 
 <!-- ══ SECTION 1: KPIs MAYO vs ABRIL ══ -->
@@ -179,7 +179,7 @@ table.ft tr.hi { background:#EFF6FF; font-weight:700; border-top:2px solid #BFDB
   <div class="kpi-row kpi-row-4" id="closingKPIs"></div>
   <div class="info-box info-green">
     ✅ <strong>GHL conectado</strong> — Leads = contactos nuevos por día.
-    Ventas = fecha de reserva (Balance Traslados). Datos al 1 Ago 2026 (G.Ads sin actualizar — Windsor expirado).
+    Ventas = fecha de reserva (Balance Traslados). Datos al 2 Ago 2026 (G.Ads sin actualizar — Windsor expirado).
   </div>
   <div class="ft-wrap" style="margin-top:10px;">
     <table class="ft" id="dailyTable">
@@ -253,7 +253,7 @@ table.ft tr.hi { background:#EFF6FF; font-weight:700; border-top:2px solid #BFDB
 <script>
 /* ════════════════════════════════════════════
    STATIC DATA — synced daily 7am
-   Last sync: 2026-08-01
+   Last sync: 2026-08-02
    ════════════════════════════════════════════ */
 const monthly = [
   { mes:"Enero",  leads:196, reservas:11, revenue:2915, chofer:799,  comb:150, peajes:29,  comision:87,  gAds:153, meta:0,   otros:73  },
@@ -262,7 +262,7 @@ const monthly = [
   { mes:"Abril",  leads:147, reservas:20, revenue:5487, chofer:3177, comb:82,  peajes:10,  comision:126, gAds:535, meta:115, otros:5   },
   { mes:"Mayo",   leads:181, reservas:25, revenue:5493, chofer:2543, comb:170, peajes:22,  comision:154, gAds:464, meta:90,  otros:8   },
   { mes:"Junio",  leads:147, reservas:23, revenue:4148, chofer:1484, comb:470, peajes:41,  comision:132, gAds:182, meta:0,   otros:83  },
-  { mes:"Julio*", leads:205, reservas:23, revenue:6894, chofer:3332, comb:703, peajes:42,  comision:207, gAds:123, meta:0,   otros:79  },
+  { mes:"Julio*", leads:205, reservas:24, revenue:6894, chofer:3332, comb:703, peajes:42,  comision:207, gAds:123, meta:0,   otros:79  },
 ];
 monthly.forEach(m => {
   m.costos   = m.chofer + m.comb + m.peajes + m.comision + m.gAds + m.meta + m.otros;

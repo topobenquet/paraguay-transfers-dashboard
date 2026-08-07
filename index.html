@@ -85,19 +85,19 @@ table.ft tr.hi { background:#EFF6FF; font-weight:700; border-top:2px solid #BFDB
 
 <div class="page-header">
   <h1>🚗 Paraguay Transfers</h1>
-  <span class="subtitle">Dashboard Live · 2 Ago 2026</span>
+  <span class="subtitle">Dashboard Live · 7 Ago 2026</span>
 </div>
 
 <!-- ══ SECTION 1: KPIs MAYO vs ABRIL ══ -->
 <div class="section">
-  <div class="section-title">Julio 2026 — mes actual vs Junio</div>
+  <div class="section-title">Agosto 2026 — mes actual vs Julio</div>
   <div class="kpi-row kpi-row-5" id="kpiMain"></div>
   <div class="kpi-row kpi-row-4" id="kpiAds"></div>
 </div>
 
 <!-- ══ SECTION 2: COMPARACIÓN PERIODO (Windsor.ai live) ══ -->
 <div class="section">
-  <div class="section-title">Google Ads — Julio 1-31 vs Junio total</div>
+  <div class="section-title">Google Ads — Agosto 1-7 vs Julio total</div>
   <div class="info-box info-gray" id="liveStatus">
     <span class="loading-spin"></span> Cargando datos en vivo…
   </div>
@@ -253,16 +253,17 @@ table.ft tr.hi { background:#EFF6FF; font-weight:700; border-top:2px solid #BFDB
 <script>
 /* ════════════════════════════════════════════
    STATIC DATA — synced daily 7am
-   Last sync: 2026-08-02
+   Last sync: 2026-08-07
    ════════════════════════════════════════════ */
 const monthly = [
-  { mes:"Enero",  leads:196, reservas:11, revenue:2915, chofer:799,  comb:150, peajes:29,  comision:87,  gAds:153, meta:0,   otros:73  },
-  { mes:"Febrero",leads:129, reservas:24, revenue:9189, chofer:5292, comb:490, peajes:93,  comision:261, gAds:292, meta:22,  otros:115 },
-  { mes:"Marzo",  leads:220, reservas:21, revenue:7311, chofer:4722, comb:92,  peajes:10,  comision:218, gAds:367, meta:156, otros:5   },
-  { mes:"Abril",  leads:147, reservas:20, revenue:5487, chofer:3177, comb:82,  peajes:10,  comision:126, gAds:535, meta:115, otros:5   },
-  { mes:"Mayo",   leads:181, reservas:25, revenue:5493, chofer:2543, comb:170, peajes:22,  comision:154, gAds:464, meta:90,  otros:8   },
-  { mes:"Junio",  leads:147, reservas:23, revenue:4148, chofer:1484, comb:470, peajes:41,  comision:132, gAds:182, meta:0,   otros:83  },
-  { mes:"Julio*", leads:205, reservas:24, revenue:6894, chofer:3332, comb:703, peajes:42,  comision:207, gAds:123, meta:0,   otros:79  },
+  { mes:"Enero",   leads:196, reservas:11, revenue:2915, chofer:799,  comb:150, peajes:29,  comision:87,  gAds:153, meta:0,   otros:73  },
+  { mes:"Febrero", leads:129, reservas:24, revenue:9189, chofer:5292, comb:490, peajes:93,  comision:261, gAds:292, meta:22,  otros:115 },
+  { mes:"Marzo",   leads:220, reservas:21, revenue:7311, chofer:4722, comb:92,  peajes:10,  comision:218, gAds:367, meta:156, otros:5   },
+  { mes:"Abril",   leads:147, reservas:20, revenue:5487, chofer:3177, comb:82,  peajes:10,  comision:126, gAds:535, meta:115, otros:5   },
+  { mes:"Mayo",    leads:181, reservas:25, revenue:5493, chofer:2543, comb:170, peajes:22,  comision:154, gAds:464, meta:90,  otros:8   },
+  { mes:"Junio",   leads:147, reservas:23, revenue:4148, chofer:1484, comb:470, peajes:41,  comision:132, gAds:182, meta:0,   otros:83  },
+  { mes:"Julio",   leads:205, reservas:24, revenue:7237, chofer:3508, comb:691, peajes:65,  comision:217, gAds:133, meta:0,   otros:83  },
+  { mes:"Agosto*", leads:66,  reservas:10, revenue:638,  chofer:108,  comb:167, peajes:23,  comision:19,  gAds:0,   meta:0,   otros:3   },
 ];
 monthly.forEach(m => {
   m.costos   = m.chofer + m.comb + m.peajes + m.comision + m.gAds + m.meta + m.otros;
@@ -279,7 +280,8 @@ const googleAdsMonthly = [
   { mes:"Abril",   spend:430.94, clicks:902,  impr:23973, conv:121.0 },
   { mes:"Mayo",    spend:352.88, clicks:3837, impr:80137, conv:573.0 },
   { mes:"Junio",   spend:241.53, clicks:3994, impr:90748, conv:479.0 },
-  { mes:"Julio*",  spend:46.94,  clicks:244,  impr:5359,  conv:34.0  },
+  { mes:"Julio",   spend:46.94,  clicks:244,  impr:5359,  conv:34.0  },
+  { mes:"Agosto*", spend:0,      clicks:0,    impr:0,     conv:0     },
 ];
 googleAdsMonthly.forEach(m => {
   m.ctr = m.impr>0 ? m.clicks/m.impr : 0;
@@ -289,9 +291,9 @@ googleAdsMonthly.forEach(m => {
   m.cpaTop  = m.cpa;
 });
 
-// Junio 1-30 reference (mes anterior día N)
-const JUN123_GADS  = 241.53;  // Jun total (Windsor expirado — usando total mensual)
-const JUN123_META  = 0;       // Jun 1-30 (Meta data ends May 21)
+// Julio 1-31 reference (mes anterior)
+const JUL123_GADS  = 133;  // Jul total (del sheet — Windsor expirado)
+const JUL123_META  = 0;    // Jul 1-31 (Meta — Windsor expirado)
 
 // GHL contacts per day — Junio 2026
 const ghlDailyJun = {
@@ -303,17 +305,28 @@ const ghlDailyJul = {
   "2026-07-02":7,"2026-07-03":8,"2026-07-04":2,"2026-07-05":1,"2026-07-06":5,"2026-07-07":5,"2026-07-08":6,"2026-07-09":9,"2026-07-10":7,"2026-07-11":4,"2026-07-12":5,"2026-07-13":13,"2026-07-14":2,"2026-07-15":6,"2026-07-16":9,"2026-07-17":25,"2026-07-18":6,"2026-07-19":6,"2026-07-20":11,"2026-07-21":6,"2026-07-22":9,"2026-07-23":8,"2026-07-24":6,"2026-07-25":9,"2026-07-26":4,"2026-07-27":7,"2026-07-28":2,"2026-07-29":4,"2026-07-30":8,"2026-07-31":5,
 };
 
+// GHL contacts per day — Agosto 2026
+const ghlDailyAgo = {
+  "2026-08-01":14,"2026-08-02":9,"2026-08-03":9,"2026-08-04":19,"2026-08-05":8,"2026-08-06":5,"2026-08-07":2,
+};
+
 // Ventas (bookings) per day from Google Sheets — Fecha de Reserva Junio 2026
 const sheetDailyJunVentas = {"2026-06-04":2,"2026-06-07":2,"2026-06-08":1,"2026-06-10":1,"2026-06-11":1,"2026-06-17":2,"2026-06-18":1,"2026-06-22":4,"2026-06-27":1,"2026-06-28":1,"2026-06-29":2};
 
 // Ventas (bookings) per day from Google Sheets — Fecha de Reserva Julio 2026
 const sheetDailyJulVentas = {"2026-07-07":2,"2026-07-08":1,"2026-07-09":1,"2026-07-13":1,"2026-07-16":1,"2026-07-17":1,"2026-07-19":1,"2026-07-20":3,"2026-07-21":3,"2026-07-22":1,"2026-07-23":1,"2026-07-25":1,"2026-07-27":1,"2026-07-30":2};
 
+// Ventas (bookings) per day from Google Sheets — Fecha de Reserva Agosto 2026
+const sheetDailyAgoVentas = {"2026-08-02":1,"2026-08-03":1,"2026-08-04":1,"2026-08-06":1};
+
 // Meta Ads daily spend Junio (Windsor.ai)
 const metaDailyJun = {};
 
-// Meta Ads daily spend Julio (Windsor.ai — data ends May 21)
+// Meta Ads daily spend Julio (Windsor.ai — expirado)
 const metaDailyJul = {};
+
+// Meta Ads daily spend Agosto (Windsor.ai — expirado)
+const metaDailyAgo = {};
 
 // Trips by country
 const trips = [
@@ -379,30 +392,30 @@ function kpi(label, val, compareHtml, sub="", cls="") {
    MAIN KPIs
    ════════════════════════════════════════════ */
 function renderKPIs() {
-  const m = monthly[6], p = monthly[5];
+  const m = monthly[7], p = monthly[6];
   document.getElementById("kpiMain").innerHTML = [
-    kpi("Revenue Julio*", f$(m.revenue),
-      badge(m.revenue,p.revenue)+` vs Jun`, `Jun: ${f$(p.revenue)}`, "kpi-blue"),
-    kpi("Ganancia Julio*", f$(m.ganancia),
-      badge(m.ganancia,p.ganancia)+` vs Jun`, `Jun: ${f$(p.ganancia)}`),
-    kpi("Ventas Julio*", m.reservas,
-      badge(m.reservas,p.reservas)+` vs Jun`, `Jun: ${p.reservas}`, "kpi-green"),
-    kpi("Margen Julio*", fp(m.margen),
-      badge(m.margen,p.margen)+` vs Jun`, `Jun: ${fp(p.margen)}`),
-    kpi("% Cierre Julio*", fp(m.cierre),
-      badge(m.cierre,p.cierre)+` vs Jun`, `${m.leads} leads · ${m.reservas} ventas`),
+    kpi("Revenue Agosto*", f$(m.revenue),
+      badge(m.revenue,p.revenue)+` vs Jul`, `Jul: ${f$(p.revenue)}`, "kpi-blue"),
+    kpi("Ganancia Agosto*", f$(m.ganancia),
+      badge(m.ganancia,p.ganancia)+` vs Jul`, `Jul: ${f$(p.ganancia)}`),
+    kpi("Ventas Agosto*", m.reservas,
+      badge(m.reservas,p.reservas)+` vs Jul`, `Jul: ${p.reservas}`, "kpi-green"),
+    kpi("Margen Agosto*", fp(m.margen),
+      badge(m.margen,p.margen)+` vs Jul`, `Jul: ${fp(p.margen)}`),
+    kpi("% Cierre Agosto*", fp(m.cierre),
+      badge(m.cierre,p.cierre)+` vs Jul`, `${m.leads} leads · ${m.reservas} ventas`),
   ].join("");
 
   document.getElementById("kpiAds").innerHTML = [
-    kpi("G.Ads Spend Julio*", f$(m.gAds),
-      badge(m.gAds,p.gAds,true)+` vs Jun`, `Jun: ${f$(p.gAds)}`),
-    kpi("Meta Spend Julio*", f$(m.meta),
-      badge(m.meta,p.meta,true)+` vs Jun`, `Jun: ${f$(p.meta)}`),
-    kpi("Total Ads Julio*", f$(m.gAds+m.meta),
-      badge(m.gAds+m.meta,p.gAds+p.meta,true)+` vs Jun`, `Jun: ${f$(p.gAds+p.meta)}`),
-    kpi("CPA G.Ads Julio*", f$(googleAdsMonthly[6].cpa),
-      badge(googleAdsMonthly[6].cpa,googleAdsMonthly[5].cpa,true)+` vs Jun`,
-      `Jun: ${f$(googleAdsMonthly[5].cpa)}`),
+    kpi("G.Ads Spend Agosto*", f$(m.gAds),
+      badge(m.gAds,p.gAds,true)+` vs Jul`, `Jul: ${f$(p.gAds)}`),
+    kpi("Meta Spend Agosto*", f$(m.meta),
+      badge(m.meta,p.meta,true)+` vs Jul`, `Jul: ${f$(p.meta)}`),
+    kpi("Total Ads Agosto*", f$(m.gAds+m.meta),
+      badge(m.gAds+m.meta,p.gAds+p.meta,true)+` vs Jul`, `Jul: ${f$(p.gAds+p.meta)}`),
+    kpi("CPA G.Ads Agosto*", f$(googleAdsMonthly[7].cpa),
+      badge(googleAdsMonthly[7].cpa,googleAdsMonthly[6].cpa,true)+` vs Jul`,
+      `Jul: ${f$(googleAdsMonthly[6].cpa)}`),
   ].join("");
 }
 
@@ -514,23 +527,23 @@ function renderCharts() {
    CLOSING RATE TABLE
    ════════════════════════════════════════════ */
 function renderClosingRate(gAdsDaily) {
-  const m = monthly[6], p = monthly[5];
+  const m = monthly[7], p = monthly[6];
   document.getElementById("closingKPIs").innerHTML = [
-    kpi("Leads Julio* (GHL)", m.leads, badge(m.leads,p.leads)+` vs Jun (${p.leads})`),
-    kpi("% Cierre Julio*", fp(m.cierre), badge(m.cierre,p.cierre)+` vs Jun (${fp(p.cierre)})`),
-    kpi("% Cierre YTD", fp(monthly.reduce((s,x)=>s+x.reservas,0)/monthly.reduce((s,x)=>s+x.leads,0)), "Ene–Jul 2026"),
+    kpi("Leads Agosto* (GHL)", m.leads, badge(m.leads,p.leads)+` vs Jul (${p.leads})`),
+    kpi("% Cierre Agosto*", fp(m.cierre), badge(m.cierre,p.cierre)+` vs Jul (${fp(p.cierre)})`),
+    kpi("% Cierre YTD", fp(monthly.reduce((s,x)=>s+x.reservas,0)/monthly.reduce((s,x)=>s+x.leads,0)), "Ene–Ago 2026"),
     kpi("Leads por venta", m.reservas>0?(m.leads/m.reservas).toFixed(1):"–", `${m.reservas} ventas · ${m.leads} leads`),
   ].join("");
 
-  const allDates = Object.keys(ghlDailyJul).sort();
+  const allDates = Object.keys(ghlDailyAgo).sort();
   let rows = "", cumLeads=0, cumVentas=0;
   allDates.forEach(d => {
     const dayFmt = d.substring(5).replace("-","/");
-    const leads  = ghlDailyJul[d] || 0;
-    const ventas = sheetDailyJulVentas[d] || 0;
+    const leads  = ghlDailyAgo[d] || 0;
+    const ventas = sheetDailyAgoVentas[d] || 0;
     const conv   = gAdsDaily[d]?.conv  || 0;
     const gSpend = gAdsDaily[d]?.spend || 0;
-    const mSpend = metaDailyJul[d] || 0;
+    const mSpend = metaDailyAgo[d] || 0;
     cumLeads  += leads;
     cumVentas += ventas;
     const cierreDay = leads>0 ? ventas/leads : null;
@@ -588,7 +601,7 @@ function renderCountries() {
 }
 
 /* ════════════════════════════════════════════
-   STATIC PERIOD COMPARISON (Jul 1-28 datos al 28/7)
+   STATIC PERIOD COMPARISON (Ago 1-7 datos al 07/8)
    ════════════════════════════════════════════ */
 // Google Ads daily Junio data (de Windsor.ai, sync 30/6)
 const gAdsDailyJunStatic = {
@@ -610,33 +623,36 @@ const gAdsDailyJulStatic = {
   "2026-07-20":{spend:1.95,conv:0},"2026-07-21":{spend:1.60,conv:0},"2026-07-22":{spend:2.00,conv:1},
 };
 
+// Google Ads daily Agosto data (Windsor.ai — expirado, sin datos)
+const gAdsDailyAgoStatic = {};
+
 function renderPeriodStatic() {
-  const dayOfMonth = 31;
-  const JUL_GADS = monthly[6].gAds;
-  const JUL_META = monthly[6].meta;
-  const JUL_CONV = googleAdsMonthly[6].conv;
-  const totalJulAds = JUL_GADS + JUL_META;
-  const totalJunAds = JUN123_GADS + JUN123_META;
-  const junConvEst  = googleAdsMonthly[5].conv*(dayOfMonth/30);
-  const cpaJul = JUL_CONV>0 ? JUL_GADS/JUL_CONV : 0;
+  const dayOfMonth = 7;
+  const AGO_GADS = monthly[7].gAds;
+  const AGO_META = monthly[7].meta;
+  const AGO_CONV = googleAdsMonthly[7].conv;
+  const totalAgoAds = AGO_GADS + AGO_META;
+  const totalJulAds = JUL123_GADS + JUL123_META;
+  const julConvEst  = googleAdsMonthly[6].conv*(dayOfMonth/31);
+  const cpaAgo = AGO_CONV>0 ? AGO_GADS/AGO_CONV : 0;
 
   document.getElementById("liveStatus").style.display="none";
   document.getElementById("livePeriodSection").innerHTML = `
     <div class="info-box info-blue" style="margin-bottom:12px;">
-      📊 Julio 1-31 vs Junio total · Datos estáticos al 31/7/2026 (G.Ads hasta 22/7 — Windsor expirado)
+      📊 Agosto 1-7 vs Julio total · Datos estáticos al 07/8/2026 (G.Ads — Windsor expirado)
     </div>
     <div class="kpi-row kpi-row-4">
-      ${kpi(`G.Ads Spend Jul 1-30`, f$(JUL_GADS),
-        badge(JUL_GADS,JUN123_GADS,true)+` vs Jun 1-30`,`Jun: ${f$(JUN123_GADS)}`)}
-      ${kpi(`Meta Spend Jul 1-30`, f$(JUL_META),
-        badge(JUL_META,JUN123_META,true)+` vs Jun 1-30`,`Jun: ${f$(JUN123_META)}`)}
-      ${kpi(`Total Ads Jul 1-30`, f$(totalJulAds),
-        badge(totalJulAds,totalJunAds,true)+` vs Jun 1-30`,`Jun: ${f$(totalJunAds)}`)}
-      ${kpi(`Conv. G.Ads Jul 1-30`, JUL_CONV.toFixed(1),
-        badge(JUL_CONV,junConvEst)+` vs Jun 1-30 est`,`CPA: ${cpaJul>0?f$(cpaJul):"–"}`)}
+      ${kpi(`G.Ads Spend Ago 1-7`, f$(AGO_GADS),
+        badge(AGO_GADS,JUL123_GADS,true)+` vs Jul total`,`Jul: ${f$(JUL123_GADS)}`)}
+      ${kpi(`Meta Spend Ago 1-7`, f$(AGO_META),
+        badge(AGO_META,JUL123_META,true)+` vs Jul total`,`Jul: ${f$(JUL123_META)}`)}
+      ${kpi(`Total Ads Ago 1-7`, f$(totalAgoAds),
+        badge(totalAgoAds,totalJulAds,true)+` vs Jul total`,`Jul: ${f$(totalJulAds)}`)}
+      ${kpi(`Conv. G.Ads Ago 1-7`, AGO_CONV.toFixed(1),
+        badge(AGO_CONV,julConvEst)+` vs Jul 1-7 est`,`CPA: ${cpaAgo>0?f$(cpaAgo):"–"}`)}
     </div>`;
 
-  renderClosingRate(gAdsDailyJulStatic);
+  renderClosingRate(gAdsDailyAgoStatic);
 }
 
 /* ════════════════════════════════════════════

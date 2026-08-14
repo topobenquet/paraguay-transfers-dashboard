@@ -58,6 +58,8 @@ table.ft th { color:white; font-size:10px; font-weight:600; padding:8px 5px; tex
 table.ft th:first-child { text-align:left; }
 table.ft td { padding:6px 5px; border-bottom:1px solid #F3F4F6; text-align:right; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 table.ft td:first-child { text-align:left; }
+/* primera columna (Mes / Fecha): nunca cortar, siempre en una línea */
+table.ft th:first-child, table.ft td:first-child { overflow:visible; text-overflow:clip; white-space:nowrap; }
 table.ft tbody tr:hover { background:#F8FAFC; }
 table.ft tr.hi { background:#EFF6FF; font-weight:700; border-top:2px solid #BFDBFE; }
 .pos { color:#059669; font-weight:600; }
@@ -85,7 +87,7 @@ table.ft tr.hi { background:#EFF6FF; font-weight:700; border-top:2px solid #BFDB
 
 <div class="page-header">
   <h1>🚗 Paraguay Transfers</h1>
-  <span class="subtitle">Dashboard Live · 13 Ago 2026</span>
+  <span class="subtitle">Dashboard Live · 14 Ago 2026</span>
 </div>
 
 <!-- ══ SECTION 1: KPIs MAYO vs ABRIL ══ -->
@@ -97,7 +99,7 @@ table.ft tr.hi { background:#EFF6FF; font-weight:700; border-top:2px solid #BFDB
 
 <!-- ══ SECTION 2: COMPARACIÓN PERIODO (Windsor.ai live) ══ -->
 <div class="section">
-  <div class="section-title">Google Ads — Agosto 1-12 vs Julio total</div>
+  <div class="section-title">Google Ads — Agosto 1-14 vs Julio total</div>
   <div class="info-box info-gray" id="liveStatus">
     <span class="loading-spin"></span> Cargando datos en vivo…
   </div>
@@ -110,27 +112,26 @@ table.ft tr.hi { background:#EFF6FF; font-weight:700; border-top:2px solid #BFDB
   <div class="ft-wrap">
     <table class="ft">
       <colgroup>
-        <col style="width:7%">  <!-- Mes -->
-        <col style="width:5%">  <!-- Leads -->
-        <col style="width:5%">  <!-- Ventas -->
-        <col style="width:7%">  <!-- Revenue -->
+        <col style="width:10%"> <!-- Mes -->
+        <col style="width:6%">  <!-- Leads -->
+        <col style="width:6%">  <!-- Ventas -->
+        <col style="width:8%">  <!-- Revenue -->
         <col style="width:7%">  <!-- %Cierre -->
-        <col style="width:7%">  <!-- Chofer -->
-        <col style="width:6%">  <!-- Comb -->
-        <col style="width:5%">  <!-- Peaj -->
-        <col style="width:6%">  <!-- Com -->
-        <col style="width:6%">  <!-- G.Ads -->
-        <col style="width:6%">  <!-- Meta -->
-        <col style="width:5%">  <!-- Otros -->
-        <col style="width:7%">  <!-- Ganancia -->
+        <col style="width:8%">  <!-- Chofer -->
+        <col style="width:7%">  <!-- Comb -->
+        <col style="width:6%">  <!-- Peaj -->
+        <col style="width:7%">  <!-- G.Ads -->
+        <col style="width:7%">  <!-- Meta -->
+        <col style="width:6%">  <!-- Otros -->
+        <col style="width:8%">  <!-- Ganancia -->
         <col style="width:6%">  <!-- Margen -->
-        <col style="width:7%">  <!-- $/trip -->
+        <col style="width:8%">  <!-- $/trip -->
       </colgroup>
       <thead>
         <tr>
           <th>Mes</th><th>Leads</th><th>Ventas</th>
           <th>Revenue</th><th>%Cierre</th>
-          <th>Chofer</th><th>Comb.</th><th>Peaj.</th><th>Com.</th>
+          <th>Chofer</th><th>Comb.</th><th>Peaj.</th>
           <th>G.Ads</th><th>Meta</th><th>Otros</th>
           <th>Ganancia</th><th>Margen</th><th>$/trip</th>
         </tr>
@@ -158,9 +159,9 @@ table.ft tr.hi { background:#EFF6FF; font-weight:700; border-top:2px solid #BFDB
   <div class="ft-wrap">
     <table class="ft">
       <colgroup>
-        <col style="width:10%"><col style="width:9%"><col style="width:9%">
-        <col style="width:9%"><col style="width:8%"><col style="width:8%">
-        <col style="width:9%"><col style="width:8%">
+        <col style="width:13%"><col style="width:9%"><col style="width:9%">
+        <col style="width:9%"><col style="width:7%"><col style="width:7%">
+        <col style="width:8%"><col style="width:8%">
         <col style="width:20%"><col style="width:10%">
       </colgroup>
       <thead>
@@ -175,28 +176,51 @@ table.ft tr.hi { background:#EFF6FF; font-weight:700; border-top:2px solid #BFDB
 
 <!-- ══ SECTION 6: % CIERRE DÍA A DÍA ══ -->
 <div class="section">
-  <div class="section-title">% Cierre — Agosto 2026 día a día (al 12 Ago)</div>
+  <div class="section-title">% Cierre — Agosto 2026 día a día (al 14 Ago)</div>
   <div class="kpi-row kpi-row-4" id="closingKPIs"></div>
   <div class="info-box info-green">
     ✅ <strong>GHL conectado</strong> — Leads = contactos nuevos por día.
-    Ventas = fecha de reserva (Balance Traslados). Datos al 13 Ago 2026 (G.Ads sin actualizar — Windsor expirado).
+    Ventas = fecha de reserva (Balance Traslados, planilla leída el 14 Ago 2026). G.Ads/Meta sin datos — Windsor expirado.
   </div>
   <div class="ft-wrap" style="margin-top:10px;">
     <table class="ft" id="dailyTable">
       <colgroup>
-        <col style="width:10%"><col style="width:10%"><col style="width:9%">
-        <col style="width:11%"><col style="width:11%"><col style="width:11%">
-        <col style="width:12%"><col style="width:13%"><col style="width:13%">
+        <col style="width:14%"><col style="width:14%"><col style="width:13%">
+        <col style="width:15%"><col style="width:15%"><col style="width:15%">
+        <col style="width:14%">
       </colgroup>
       <thead>
         <tr>
           <th>Fecha</th><th>Leads GHL</th><th>Ventas</th>
           <th>Conv. G.Ads</th><th>Spend G.Ads</th><th>Spend Meta</th>
-          <th>% Cierre</th><th>Leads acum.</th><th>Ventas acum.</th>
+          <th>% Cierre</th>
         </tr>
       </thead>
       <tbody id="dailyBody"></tbody>
     </table>
+  </div>
+</div>
+
+<!-- ══ SECTION 6b: PRÓXIMOS TRASLADOS ══ -->
+<div class="section">
+  <div class="section-title">Próximos traslados — desde hoy</div>
+  <div class="kpi-row kpi-row-3" id="nextKPIs" style="margin-bottom:12px;"></div>
+  <div class="ft-wrap">
+    <table class="ft">
+      <colgroup>
+        <col style="width:11%"><col style="width:8%"><col style="width:22%">
+        <col style="width:16%"><col style="width:10%"><col style="width:14%">
+        <col style="width:9%"><col style="width:10%">
+      </colgroup>
+      <thead>
+        <tr><th>Salida</th><th>Faltan</th><th>Ruta</th><th>Cliente</th><th>País</th>
+          <th>Chofer</th><th>Total</th><th>Saldo</th></tr>
+      </thead>
+      <tbody id="nextBody"></tbody>
+    </table>
+  </div>
+  <div class="info-box info-gray" style="margin-top:8px;">
+    Fuente: Balance Traslados (Fecha de Salida real, formato día/mes/año). Se listan solo las salidas de hoy en adelante.
   </div>
 </div>
 
@@ -232,14 +256,16 @@ table.ft tr.hi { background:#EFF6FF; font-weight:700; border-top:2px solid #BFDB
     <table class="ft">
       <colgroup>
         <col style="width:4%">
-        <col style="width:32%">
-        <col style="width:9%">
+        <col style="width:26%">
+        <col style="width:8%">
+        <col style="width:10%">
         <col style="width:11%">
-        <col style="width:12%">
-        <col style="width:32%">
+        <col style="width:11%">
+        <col style="width:8%">
+        <col style="width:22%">
       </colgroup>
       <thead>
-        <tr><th>#</th><th>Ruta</th><th>Viajes</th><th>Precio prom.</th><th>Revenue total</th><th>Popularidad</th></tr>
+        <tr><th>#</th><th>Ruta</th><th>Viajes</th><th>Precio prom.</th><th>Revenue total</th><th>Ganancia</th><th>Margen</th><th>Popularidad</th></tr>
       </thead>
       <tbody id="routesBody"></tbody>
     </table>
@@ -263,7 +289,7 @@ const monthly = [
   { mes:"Mayo",    leads:181, reservas:25, revenue:5493, chofer:2543, comb:170, peajes:22,  comision:154, gAds:464, meta:90,  otros:8   },
   { mes:"Junio",   leads:147, reservas:23, revenue:4148, chofer:1484, comb:470, peajes:41,  comision:132, gAds:182, meta:0,   otros:83  },
   { mes:"Julio",   leads:205, reservas:24, revenue:7237, chofer:3508, comb:691, peajes:65,  comision:217, gAds:133, meta:0,   otros:83  },
-  { mes:"Agosto*", leads:132, reservas:20, revenue:2327, chofer:407,  comb:464, peajes:23,  comision:74,  gAds:0,   meta:0,   otros:19  },
+  { mes:"Agosto*", leads:152, reservas:24, revenue:4273, chofer:1438, comb:683, peajes:52,  comision:111, gAds:0,   meta:0,   otros:120 },
 ];
 monthly.forEach(m => {
   m.costos   = m.chofer + m.comb + m.peajes + m.comision + m.gAds + m.meta + m.otros;
@@ -307,7 +333,7 @@ const ghlDailyJul = {
 
 // GHL contacts per day — Agosto 2026
 const ghlDailyAgo = {
-  "2026-08-01":14,"2026-08-02":9,"2026-08-03":9,"2026-08-04":19,"2026-08-05":8,"2026-08-06":5,"2026-08-07":16,"2026-08-08":7,"2026-08-09":11,"2026-08-10":9,"2026-08-11":11,"2026-08-12":11,"2026-08-13":3,
+  "2026-08-01":14,"2026-08-02":9,"2026-08-03":9,"2026-08-04":19,"2026-08-05":8,"2026-08-06":5,"2026-08-07":16,"2026-08-08":7,"2026-08-09":11,"2026-08-10":9,"2026-08-11":11,"2026-08-12":11,"2026-08-13":16,"2026-08-14":7,
 };
 
 // Ventas (bookings) per day from Google Sheets — Fecha de Reserva Junio 2026
@@ -317,7 +343,7 @@ const sheetDailyJunVentas = {"2026-06-04":2,"2026-06-07":2,"2026-06-08":1,"2026-
 const sheetDailyJulVentas = {"2026-07-07":2,"2026-07-08":1,"2026-07-09":1,"2026-07-13":1,"2026-07-16":1,"2026-07-17":1,"2026-07-19":1,"2026-07-20":3,"2026-07-21":3,"2026-07-22":1,"2026-07-23":1,"2026-07-25":1,"2026-07-27":1,"2026-07-30":2};
 
 // Ventas (bookings) per day from Google Sheets — Fecha de Reserva Agosto 2026
-const sheetDailyAgoVentas = {"2026-08-02":1,"2026-08-03":1,"2026-08-04":1,"2026-08-06":4,"2026-08-07":2,"2026-08-09":2,"2026-08-10":1,"2026-08-11":2,"2026-08-12":2};
+const sheetDailyAgoVentas = {"2026-08-02":2,"2026-08-03":1,"2026-08-04":1,"2026-08-06":3,"2026-08-07":2,"2026-08-09":2,"2026-08-10":1,"2026-08-11":2,"2026-08-12":3,"2026-08-13":1,"2026-08-14":1};
 
 // Meta Ads daily spend Junio (Windsor.ai)
 const metaDailyJun = {};
@@ -369,6 +395,7 @@ const rClass = {"Norteamérica":"pill-na","Sudamérica":"pill-sa","Europa":"pill
    ════════════════════════════════════════════ */
 const f$ = n => (n<0?"-$":"$")+Math.abs(Math.round(n)).toLocaleString("en-US");
 const fp = n => (n*100).toFixed(1)+"%";
+const fp0 = n => Math.round(n*100)+"%";   // sin decimales (margen)
 const fn = n => Math.round(n).toLocaleString("en-US");
 const fd2 = n => n.toFixed(2);
 
@@ -434,12 +461,11 @@ function renderMonthly() {
       <td>${f$(m.chofer)}</td>
       <td>${f$(m.comb)}</td>
       <td>${f$(m.peajes)}</td>
-      <td>${f$(m.comision)}</td>
       <td>${f$(m.gAds)}</td>
       <td>${m.meta>0?f$(m.meta):"–"}</td>
       <td>${m.otros>0?f$(m.otros):"–"}</td>
       <td class="${m.ganancia>=0?"pos":"neg"}">${f$(m.ganancia)}</td>
-      <td>${fp(m.margen)}</td>
+      <td>${fp0(m.margen)}</td>
       <td>${f$(m.perTrip)}</td>
     </tr>`;
   });
@@ -455,10 +481,10 @@ function renderMonthly() {
     <td>${f$(y.revenue)}</td>
     <td class="pos">${fp(y.reservas/y.leads)}</td>
     <td>${f$(y.chofer)}</td><td>${f$(y.comb)}</td>
-    <td>${f$(y.peajes)}</td><td>${f$(y.comision)}</td>
+    <td>${f$(y.peajes)}</td>
     <td>${f$(y.gAds)}</td><td>${f$(y.meta)}</td><td>${f$(y.otros)}</td>
     <td class="pos">${f$(y.ganancia)}</td>
-    <td>${fp(y.ganancia/y.revenue)}</td>
+    <td>${fp0(y.ganancia/y.revenue)}</td>
     <td>${f$(y.ganancia/y.reservas)}</td>
   </tr>`;
   document.getElementById("monthlyBody").innerHTML = rows;
@@ -536,18 +562,19 @@ function renderClosingRate(gAdsDaily) {
   ].join("");
 
   const allDates = Object.keys(ghlDailyAgo).sort();
-  let rows = "", cumLeads=0, cumVentas=0;
+  let rows = "";
+  const t = {leads:0, ventas:0, conv:0, gSpend:0, mSpend:0};
   allDates.forEach(d => {
-    const dayFmt = d.substring(5).replace("-","/");
+    const [yy,mm,dd] = d.split("-");
+    const dayFmt = `${dd}/${mm}`;              // día/mes, en una sola línea
     const leads  = ghlDailyAgo[d] || 0;
     const ventas = sheetDailyAgoVentas[d] || 0;
     const conv   = gAdsDaily[d]?.conv  || 0;
     const gSpend = gAdsDaily[d]?.spend || 0;
     const mSpend = metaDailyAgo[d] || 0;
-    cumLeads  += leads;
-    cumVentas += ventas;
+    t.leads += leads; t.ventas += ventas; t.conv += conv;
+    t.gSpend += gSpend; t.mSpend += mSpend;
     const cierreDay = leads>0 ? ventas/leads : null;
-    const cierre7   = cumLeads>0 ? cumVentas/cumLeads : null;
     rows += `<tr>
       <td>${dayFmt}</td>
       <td><strong>${leads}</strong></td>
@@ -556,10 +583,18 @@ function renderClosingRate(gAdsDaily) {
       <td>${gSpend>0?f$(gSpend):"–"}</td>
       <td>${mSpend>0?f$(mSpend):"–"}</td>
       <td class="${cierreDay!==null&&cierreDay>=0.12?"pos":"neu"}">${cierreDay!==null?fp(cierreDay):"–"}</td>
-      <td>${cumLeads}</td>
-      <td class="${cumVentas>0?"pos":""}">${cumVentas}</td>
     </tr>`;
   });
+  // fila total: suma de todo, salvo % Cierre que es el promedio del mes (ventas/leads)
+  rows += `<tr class="hi">
+    <td>Total</td>
+    <td>${t.leads}</td>
+    <td class="${t.ventas>0?"pos":""}">${t.ventas}</td>
+    <td>${t.conv>0?t.conv.toFixed(1):"–"}</td>
+    <td>${t.gSpend>0?f$(t.gSpend):"–"}</td>
+    <td>${t.mSpend>0?f$(t.mSpend):"–"}</td>
+    <td class="${t.leads>0&&t.ventas/t.leads>=0.12?"pos":"neu"}">${t.leads>0?fp(t.ventas/t.leads):"–"}</td>
+  </tr>`;
   document.getElementById("dailyBody").innerHTML = rows;
 }
 
@@ -601,7 +636,7 @@ function renderCountries() {
 }
 
 /* ════════════════════════════════════════════
-   STATIC PERIOD COMPARISON (Ago 1-13 datos al 13/8)
+   STATIC PERIOD COMPARISON (Ago 1-14, datos al 14/8)
    ════════════════════════════════════════════ */
 // Google Ads daily Junio data (de Windsor.ai, sync 30/6)
 const gAdsDailyJunStatic = {
@@ -627,7 +662,7 @@ const gAdsDailyJulStatic = {
 const gAdsDailyAgoStatic = {};
 
 function renderPeriodStatic() {
-  const dayOfMonth = 12;
+  const dayOfMonth = 14;
   const AGO_GADS = monthly[7].gAds;
   const AGO_META = monthly[7].meta;
   const AGO_CONV = googleAdsMonthly[7].conv;
@@ -639,16 +674,16 @@ function renderPeriodStatic() {
   document.getElementById("liveStatus").style.display="none";
   document.getElementById("livePeriodSection").innerHTML = `
     <div class="info-box info-blue" style="margin-bottom:12px;">
-      📊 Agosto 1-12 vs Julio total · Datos estáticos al 12/8/2026 (G.Ads — Windsor expirado)
+      📊 Agosto 1-14 vs Julio total · Datos al 14/8/2026 (G.Ads — Windsor expirado, sin spend cargado)
     </div>
     <div class="kpi-row kpi-row-4">
-      ${kpi(`G.Ads Spend Ago 1-13`, f$(AGO_GADS),
+      ${kpi(`G.Ads Spend Ago 1-14`, f$(AGO_GADS),
         badge(AGO_GADS,JUL123_GADS,true)+` vs Jul total`,`Jul: ${f$(JUL123_GADS)}`)}
-      ${kpi(`Meta Spend Ago 1-13`, f$(AGO_META),
+      ${kpi(`Meta Spend Ago 1-14`, f$(AGO_META),
         badge(AGO_META,JUL123_META,true)+` vs Jul total`,`Jul: ${f$(JUL123_META)}`)}
-      ${kpi(`Total Ads Ago 1-13`, f$(totalAgoAds),
+      ${kpi(`Total Ads Ago 1-14`, f$(totalAgoAds),
         badge(totalAgoAds,totalJulAds,true)+` vs Jul total`,`Jul: ${f$(totalJulAds)}`)}
-      ${kpi(`Conv. G.Ads Ago 1-13`, AGO_CONV.toFixed(1),
+      ${kpi(`Conv. G.Ads Ago 1-14`, AGO_CONV.toFixed(1),
         badge(AGO_CONV,julConvEst)+` vs Jul 1-7 est`,`CPA: ${cpaAgo>0?f$(cpaAgo):"–"}`)}
     </div>`;
 
@@ -659,15 +694,23 @@ function renderPeriodStatic() {
 /* ════════════════════════════════════════════
    RUTAS POPULARES
    ════════════════════════════════════════════ */
+// Rentabilidad por ruta — Balance Traslados (Ene–Ago 2026), top 10 por viajes
 const popularRoutes = [
-  { origen:"ASU",              destino:"Foz do Iguaçu (BR)",  count:11, avgPrice:376, totalRevenue:4140 },
-  { origen:"ASU",              destino:"Formosa AR (ida+vta)", count:4,  avgPrice:790, totalRevenue:3162 },
-  { origen:"ASU",              destino:"Puerto Iguazú (AR)",   count:4,  avgPrice:380, totalRevenue:1518 },
-  { origen:"Foz do Iguaçu (BR)", destino:"ASU",               count:3,  avgPrice:429, totalRevenue:1288 },
-  { origen:"ASU",              destino:"Formosa (AR)",         count:3,  avgPrice:260, totalRevenue:781  },
-  { origen:"ASU",              destino:"Foz do Iguaçu RT",    count:2,  avgPrice:612, totalRevenue:1224 },
-  { origen:"CDE",              destino:"Foz do Iguaçu (BR)",  count:2,  avgPrice:350, totalRevenue:701  },
+  { origen:"ASU",              destino:"Foz do Iguaçu (BR)",   count:13, totalRevenue:5122, ganancia:2038 },
+  { origen:"ASU",              destino:"Multitraslado ASU",    count:5,  totalRevenue:1803, ganancia:845  },
+  { origen:"ASU",              destino:"Formosa (ida+vta)",    count:3,  totalRevenue:2708, ganancia:688  },
+  { origen:"Foz do Iguaçu (BR)", destino:"ASU",                count:3,  totalRevenue:1161, ganancia:378  },
+  { origen:"ASU",              destino:"Formosa (AR)",         count:3,  totalRevenue:781,  ganancia:382  },
+  { origen:"ASU",              destino:"Bonito (BR)",          count:2,  totalRevenue:1637, ganancia:769  },
+  { origen:"ASU",              destino:"Foz do Iguaçu RT",     count:2,  totalRevenue:1224, ganancia:404  },
+  { origen:"ASU",              destino:"Puerto Iguazú (AR)",   count:2,  totalRevenue:744,  ganancia:243  },
+  { origen:"CDE",              destino:"Foz do Iguaçu (BR)",   count:2,  totalRevenue:701,  ganancia:264  },
+  { origen:"ASU",              destino:"Ciudad del Este",      count:2,  totalRevenue:634,  ganancia:284  },
 ];
+popularRoutes.forEach(r => {
+  r.avgPrice = Math.round(r.totalRevenue / r.count);
+  r.margen   = r.totalRevenue > 0 ? r.ganancia / r.totalRevenue : 0;
+});
 
 function renderRoutes() {
   const max = popularRoutes[0].count;
@@ -682,17 +725,74 @@ function renderRoutes() {
       <td style="color:#6B7280;font-size:11px;">${i+1}</td>
       <td><strong>${r.origen}</strong> → ${r.destino}</td>
       <td style="color:#1F4E78;font-weight:600;">${r.count}</td>
-      <td>$${r.avgPrice.toLocaleString()}</td>
-      <td class="pos">$${r.totalRevenue.toLocaleString()}</td>
+      <td>${f$(r.avgPrice)}</td>
+      <td class="pos">${f$(r.totalRevenue)}</td>
+      <td class="pos">${f$(r.ganancia)}</td>
+      <td class="${r.margen>=0.40?"pos":""}">${fp0(r.margen)}</td>
       <td>${bar}</td>
     </tr>`;
   }).join("");
 }
 
 /* ════════════════════════════════════════════
+   PRÓXIMOS TRASLADOS
+   Del Balance Traslados — Fecha de Salida real.
+   OJO: en la planilla la fecha es día/mes/año.
+   ════════════════════════════════════════════ */
+const upcomingTrips = [
+  // salida = ISO (yyyy-mm-dd) para poder comparar con hoy; salidaTxt = como figura en la planilla
+  { salida:"2026-08-14", salidaTxt:"14/08/26",            ruta:"CDE → Aeropuerto ASU",        cliente:"Kalinichenko",  pais:"Ucrania",   chofer:"Juan Ramón",         total:317,  saldo:217  },
+  { salida:"2026-08-14", salidaTxt:"14/08/26",            ruta:"ASU → Encarnación",           cliente:"Roberta Melo",  pais:"Brasil",    chofer:"Luis Vásquez",       total:366,  saldo:0    },
+  { salida:"2026-08-15", salidaTxt:"15/08/26 – 16/08/26", ruta:"ASU → Foz → CDE → ASU",       cliente:"Dorian",        pais:"Francia",   chofer:"Alfredo Sánchez",    total:797,  saldo:0    },
+  { salida:"2026-08-22", salidaTxt:"22/08/26",            ruta:"Aero → Palmaroga → Aero",     cliente:"Travel Line",   pais:"Argentina", chofer:"Alfredo Sánchez",    total:120,  saldo:0    },
+  { salida:"2026-08-24", salidaTxt:"24/08/26",            ruta:"ASU → Rosario (AR)",          cliente:"—",             pais:"Australia", chofer:"Sin asignar",        total:947,  saldo:647  },
+  { salida:"2026-09-23", salidaTxt:"23/09/26 – 26/09/26", ruta:"Aero → Dazzler → Aero",       cliente:"Rafa",          pais:"México",    chofer:"Alfredo Sánchez",    total:194,  saldo:94   },
+  { salida:"2026-10-02", salidaTxt:"02/10/26",            ruta:"Foz do Iguaçu → ASU",         cliente:"Thomas Kirby",  pais:"UK",        chofer:"Alfredo Sánchez",    total:417,  saldo:317  },
+  { salida:"2026-10-05", salidaTxt:"05/10/26",            ruta:"Sin definir",                 cliente:"Gisela Uria-Ruiz", pais:"—",      chofer:"Sin asignar",        total:449,  saldo:0    },
+  { salida:"2026-10-18", salidaTxt:"18/10/26",            ruta:"ASU → Foz do Iguaçu",         cliente:"Angela",        pais:"España",    chofer:"Alfredo Sánchez",    total:447,  saldo:297  },
+  { salida:"2026-10-24", salidaTxt:"24/10/26 – 31/10/26", ruta:"Tour personalizado",          cliente:"Natalie M",     pais:"USA",       chofer:"Daniel Sánchez",     total:3081, saldo:2181 },
+  { salida:"2027-03-18", salidaTxt:"18/03/27",            ruta:"Aeropuerto → Hotel",          cliente:"Miguel Fleginsky", pais:"Uruguay",chofer:"Matías Silva",       total:0,    saldo:0    },
+];
+
+function renderUpcoming() {
+  const now = new Date();
+  const hoy = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const parseISO = s => { const [y,m,d] = s.split("-").map(Number); return new Date(y, m-1, d); };
+  const dias = s => Math.round((parseISO(s) - hoy) / 86400000);
+
+  const next = upcomingTrips.filter(t => dias(t.salida) >= 0).sort((a,b) => a.salida.localeCompare(b.salida));
+  const en30 = next.filter(t => dias(t.salida) <= 30);
+
+  document.getElementById("nextKPIs").innerHTML = [
+    kpi("Traslados agendados", next.length, `Salidas desde hoy`,
+      `${en30.length} en los próximos 30 días`),
+    kpi("Revenue comprometido", f$(next.reduce((s,t)=>s+t.total,0)),
+      `${f$(en30.reduce((s,t)=>s+t.total,0))} en 30 días`),
+    kpi("Saldo a cobrar", f$(next.reduce((s,t)=>s+t.saldo,0)),
+      `Pendiente de pago al viajar`),
+  ].join("");
+
+  document.getElementById("nextBody").innerHTML = next.map(t => {
+    const d = dias(t.salida);
+    const cuando = d === 0 ? "HOY" : d === 1 ? "mañana" : `${d} días`;
+    return `<tr${d<=1?' class="hi"':''}>
+      <td>${t.salidaTxt}</td>
+      <td class="${d<=1?"pos":"neu"}">${cuando}</td>
+      <td>${t.ruta}</td>
+      <td>${t.cliente}</td>
+      <td>${t.pais}</td>
+      <td style="font-size:10.5px;">${t.chofer}</td>
+      <td>${t.total>0?f$(t.total):"–"}</td>
+      <td class="${t.saldo>0?"neg":""}">${t.saldo>0?f$(t.saldo):"–"}</td>
+    </tr>`;
+  }).join("") || `<tr><td colspan="8" style="text-align:center;color:#9CA3AF;">Sin traslados agendados</td></tr>`;
+}
+
+/* ════════════════════════════════════════════
    INIT
    ════════════════════════════════════════════ */
 function init() {
+  renderUpcoming();
   renderKPIs();
   renderMonthly();
   renderAdsTable();
